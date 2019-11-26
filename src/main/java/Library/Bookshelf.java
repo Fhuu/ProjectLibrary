@@ -1,13 +1,13 @@
 package Library;
 
-import Book.ConcreteBook;
+import Book.AConcreteBook;
 
 import java.util.ArrayList;
 
 class Bookshelf {
 
     private static Bookshelf bookshelf = new Bookshelf();
-    private ArrayList<ConcreteBook> books;
+    private ArrayList<AConcreteBook> books;
 
     private Bookshelf() {
         books = new ArrayList<>();
@@ -17,15 +17,12 @@ class Bookshelf {
         return bookshelf;
     }
 
-    public void addBookToBookshelf(ConcreteBook book) {
+    public void addBook(AConcreteBook book) {
         this.books.add(book);
     }
 
-    public ArrayList<ConcreteBook> getBooks() {
+    public ArrayList<AConcreteBook> getBooks() {
         return books;
     }
 
-    public void setBooks(ArrayList<ConcreteBook> books) {
-        this.books = books;
-    }
 }
