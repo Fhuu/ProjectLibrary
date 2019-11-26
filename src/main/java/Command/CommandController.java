@@ -1,5 +1,6 @@
-package Commander;
+package Command;
 
+import Account.Logger;
 import Library.BookShelfController;
 
 import java.util.Scanner;
@@ -8,6 +9,12 @@ public class CommandController {
 
     private static CommandController cc = new CommandController();
     Commands command;
+    public final String help = "Available commands:" +
+            "\n- add  -> to add book into bookshelf" +
+            "\n- print -> to see books inside bookshelf" +
+            "\n- login -> to log into a profile" +
+            "\n- check-profile -> to check whether you are logged in" +
+            "\n- help -> to see all available commands";
 
     private CommandController() {
 
@@ -50,10 +57,14 @@ public class CommandController {
                 System.out.println("---------------------D-I-R-O-L-I-B-R-A-R-Y-------------------\n");
                 break;
             case help:
-                System.out.println("Available commands:" +
-                        "\n- add  -> to add book into bookshelf" +
-                        "\n- print -> to see books inside bookshelf" +
-                        "\n- help -> to see all available commands");
+                System.out.println(help);
+                break;
+            case login:
+                Logger logger = Logger.getInstance();
+                logger.login();
+                break;
+            case check_profile:
+                System.out.println(Logger.getInstance().isLoggedInStat());
                 break;
             case end:
                 System.out.println("Thank you for using our service.\n-DB");

@@ -1,4 +1,6 @@
-import Commander.CommandController;
+import Account.AccountsController;
+import Account.Logger;
+import Command.CommandController;
 import Library.BookShelfController;
 
 import java.util.Scanner;
@@ -7,6 +9,8 @@ public class Main {
 
     private static BookShelfController bsc;
     private static CommandController cc;
+    private static AccountsController ac;
+    private static Logger logger;
     private static Scanner scanner;
 
     public static void main(String[] args) {
@@ -26,13 +30,17 @@ public class Main {
 
     private static void init() {
         bsc = BookShelfController.getInstance();
-        cc = CommandController.getInstance();
-        scanner = new Scanner(System.in);
         bsc.init();
-        System.out.println("Available commands:" +
-                "\n- add  -> to add book into bookshelf" +
-                "\n- print -> to see books inside bookshelf" +
-                "\n- help -> to see all available commands" +
-                "\nPlease input your command");
+
+        cc = CommandController.getInstance();
+
+        scanner = new Scanner(System.in);
+
+        ac = AccountsController.getInstance();
+        ac.init();
+
+        logger = Logger.getInstance();
+
+        System.out.println(cc.help);
     }
 }

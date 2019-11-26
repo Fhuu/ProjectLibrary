@@ -13,7 +13,7 @@ public class UserTest {
     private APerson user;
 
     @Test
-    private void testCreateNonAdminUser() {
+    public void testCreateNonAdminUser() {
         uc = new NonAdminPersonCreator();
         user = uc.createPerson("Diro", "566367", "05/05/1997");
         assertEquals("Diro", user.getName());
@@ -23,7 +23,7 @@ public class UserTest {
     }
 
     @Test
-    private void testCreateAdminUser() {
+    public void testCreateAdminUser() {
         uc = new AdminPersonCreator();
         user = uc.createPerson("Jacq", "123456", "26/09/1997");
         assertEquals("Jacq", user.getName());
